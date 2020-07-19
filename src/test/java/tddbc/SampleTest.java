@@ -15,7 +15,6 @@ public class SampleTest {
         String actual = sut.say();
         // Verify
         assertThat(actual, is("Hello TDD BootCamp!"));
-        //kurashima 追加テスト
     }
 
 }
