@@ -95,4 +95,15 @@ public class ClosedRangeTest {
 
     }
 
+    @Test
+    public void 別の閉区間と等価であることを判定できる() {
+        //準備
+        ClosedRange closedRange = new ClosedRange(0, 10);
+        ClosedRange sutClosedRange = new ClosedRange(0, 10);
+        //実行
+        boolean actual = closedRange.equals(sutClosedRange);
+        //検証
+        assertThat(actual, is(true));
+    }
+
 }
