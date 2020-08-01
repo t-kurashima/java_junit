@@ -7,12 +7,22 @@ import static org.junit.Assert.assertThat;
 public class ClosedRangeTest {
 
     @Test
-    void 下端点と上端点を取得できる(){
+    public void 下端点3と上端点8を取得できる(){
         //準備
-        ClosedRange closedRange = new ClosedRange();
+        ClosedRange closedRange = new ClosedRange(3, 8);
         //実行
         String actual = closedRange.getRange();
         //検証
         assertThat(actual, is("[3,8]"));
+    }
+
+    @Test
+    public void 下端点4と上端点7を取得できる(){
+        //準備
+        ClosedRange closedRange = new ClosedRange(4, 7);
+        //実行
+        String actual = closedRange.getRange();
+        //検証
+        assertThat(actual, is("[4,7]"));
     }
 }
