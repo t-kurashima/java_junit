@@ -47,4 +47,17 @@ public class ClosedRangeTest {
         //検証
         assertThat(actual, is(true));
     }
+
+
+    @Test
+    public void それ以外を含むことを判定できる(){
+        //準備
+        int middlePoint = 6;
+        ClosedRange closedRange = new ClosedRange(0,10);
+        //実行
+        boolean actual = closedRange.include(middlePoint);
+        //検証
+        assertThat(actual, is(true));
+    }
+
 }

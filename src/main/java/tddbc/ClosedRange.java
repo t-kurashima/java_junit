@@ -15,7 +15,7 @@ public class ClosedRange {
     }
 
     public boolean include(int point) {
-        return this.lowerEndpoint <= point;
+        return ((this.lowerEndpoint <= point) && (point <= this.upperEndpoint));
     }
 
 }
