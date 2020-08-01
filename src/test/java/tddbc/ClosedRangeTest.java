@@ -9,7 +9,7 @@ public class ClosedRangeTest {
     @Test
     void 下端点と上端点を取得できる(){
         //準備
-        ClossedRange clossedRange = new ClosedRange();
+        ClosedRange closedRange = new ClosedRange();
         //実行
         String actual = closedRange.getRange();
         //検証
