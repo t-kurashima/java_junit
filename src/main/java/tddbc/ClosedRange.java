@@ -18,8 +18,16 @@ public class ClosedRange {
         return ((this.lowerEndpoint <= point) && (point <= this.upperEndpoint));
     }
 
+    public int getLowerEndpoint() {
+        return this.lowerEndpoint;
+    }
+
+    public int getUpperEndpoint() {
+        return this.upperEndpoint;
+    }
+
     public boolean equals(ClosedRange it){
-        return true;
+        return (this.lowerEndpoint == it.getLowerEndpoint()) && (this.upperEndpoint == it.getUpperEndpoint());
     }
 
 }
