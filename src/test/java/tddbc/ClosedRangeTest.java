@@ -30,39 +30,69 @@ public class ClosedRangeTest {
 
     @Nested
     class 整数閉区間を示すクラスは指定した整数を含むかどうかを判定できる {
-        @Test
-        public void 下端の境界値を含むことを判定できる() {
-            //準備
-            int lowerEndpoint = 0;
-            ClosedRange closedRange = new ClosedRange(lowerEndpoint, 10);
-            //実行
-            boolean actual = closedRange.include(lowerEndpoint);
-            //検証
-            assertThat(actual, is(true));
+        @Nested
+        class 指定した整数を含むことを判定できる {
+
+            @Test
+            public void 下端の境界値を含むことを判定できる() {
+                //準備
+                int lowerEndpoint = 0;
+                ClosedRange closedRange = new ClosedRange(lowerEndpoint, 10);
+                //実行
+                boolean actual = closedRange.include(lowerEndpoint);
+                //検証
+                assertThat(actual, is(true));
+            }
+
+            @Test
+            public void 上端の境界値を含むことを判定できる() {
+                //準備
+                int upperEndPoint = 10;
+                ClosedRange closedRange = new ClosedRange(0, upperEndPoint);
+                //実行
+                boolean actual = closedRange.include(upperEndPoint);
+                //検証
+                assertThat(actual, is(true));
+            }
+
+
+            @Test
+            public void それ以外を含むことを判定できる() {
+                //準備
+                int middlePoint = 6;
+                ClosedRange closedRange = new ClosedRange(0, 10);
+                //実行
+                boolean actual = closedRange.include(middlePoint);
+                //検証
+                assertThat(actual, is(true));
+            }
         }
 
-        @Test
-        public void 上端の境界値を含むことを判定できる() {
-            //準備
-            int upperEndPoint = 10;
-            ClosedRange closedRange = new ClosedRange(0, upperEndPoint);
-            //実行
-            boolean actual = closedRange.include(upperEndPoint);
-            //検証
-            assertThat(actual, is(true));
+        @Nested
+        class 指定した整数を含まないことを判定できる {
+            @Test
+            public void 下端より下の値を含まないことを判定できる() {
+                //準備
+                int lowerEndpoint = 0;
+                ClosedRange closedRange = new ClosedRange(lowerEndpoint, 10);
+                //実行
+                boolean actual = closedRange.include(lowerEndpoint - 1);
+                //検証
+                assertThat(actual, is(false));
+            }
+
+            @Test
+            public void 上端より上の値を含まないことを判定できる() {
+                //準備
+                int upperEndPoint = 10;
+                ClosedRange closedRange = new ClosedRange(0, upperEndPoint);
+                //実行
+                boolean actual = closedRange.include(upperEndPoint + 1);
+                //検証
+                assertThat(actual, is(false));
+            }
         }
 
-
-        @Test
-        public void それ以外を含むことを判定できる() {
-            //準備
-            int middlePoint = 6;
-            ClosedRange closedRange = new ClosedRange(0, 10);
-            //実行
-            boolean actual = closedRange.include(middlePoint);
-            //検証
-            assertThat(actual, is(true));
-        }
     }
 
 }
