@@ -25,4 +25,24 @@ public class ClosedRangeTest {
         //検証
         assertThat(actual, is("[4,7]"));
     }
+
+    @Test
+    public void 指定した整数を含むかどうかを判定できる(){
+        //準備
+        ClosedRange closedRange = new ClosedRange(0,10);
+        //実行
+        boolean actual = closedRange.include(1);
+        //検証
+        assertThat(actual, is(true));
+    }
+
+    @Test
+    public void 指定した整数を含まないかどうかを判定できる(){
+        //準備
+        ClosedRange closedRange = new ClosedRange(0,10);
+        //実行
+        boolean actual = closedRange.include(1);
+        //検証
+        assertThat(actual, is(true));
+    }
 }
