@@ -29,9 +29,21 @@ public class ClosedRangeTest {
     @Test
     public void 下端の境界値を含むことを判定できる(){
         //準備
-        ClosedRange closedRange = new ClosedRange(0,10);
+        int lowerEndpoint = 0;
+        ClosedRange closedRange = new ClosedRange(lowerEndpoint,10);
         //実行
-        boolean actual = closedRange.include(0);
+        boolean actual = closedRange.include(lowerEndpoint);
+        //検証
+        assertThat(actual, is(true));
+    }
+
+    @Test
+    public void 上端の境界値を含むことを判定できる(){
+        //準備
+        int upperEndPoint = 10;
+        ClosedRange closedRange = new ClosedRange(0,upperEndPoint);
+        //実行
+        boolean actual = closedRange.include(upperEndPoint);
         //検証
         assertThat(actual, is(true));
     }
