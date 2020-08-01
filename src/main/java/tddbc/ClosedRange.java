@@ -14,8 +14,8 @@ public class ClosedRange {
         return String.format("[%d,%d]",this.lowerEndpoint,this.upperEndpoint);
     }
 
-    public boolean include(int i) {
-        return true;
+    public boolean include(int point) {
+        return this.lowerEndpoint <= point;
     }
 
 }

@@ -27,21 +27,11 @@ public class ClosedRangeTest {
     }
 
     @Test
-    public void 指定した整数を含むかどうかを判定できる(){
+    public void 下端の境界値を含むことを判定できる(){
         //準備
         ClosedRange closedRange = new ClosedRange(0,10);
         //実行
-        boolean actual = closedRange.include(1);
-        //検証
-        assertThat(actual, is(true));
-    }
-
-    @Test
-    public void 指定した整数を含まないかどうかを判定できる(){
-        //準備
-        ClosedRange closedRange = new ClosedRange(0,10);
-        //実行
-        boolean actual = closedRange.include(1);
+        boolean actual = closedRange.include(0);
         //検証
         assertThat(actual, is(true));
     }
