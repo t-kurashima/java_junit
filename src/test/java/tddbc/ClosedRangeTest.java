@@ -120,4 +120,14 @@ public class ClosedRangeTest {
         }
     }
 
+    @Test
+    public void 別の閉区間と比べて完全に含まれることを判定できる() {
+        //準備
+        ClosedRange closedRange = new ClosedRange(0, 10);
+        ClosedRange sutClosedRange = new ClosedRange(3, 7);
+        //実行
+        boolean actual = closedRange.exist(sutClosedRange);
+        //検証
+        assertThat(actual, is(true));
+    }
 }

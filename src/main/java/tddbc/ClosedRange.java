@@ -26,8 +26,12 @@ public class ClosedRange {
         return this.upperEndpoint;
     }
 
-    public boolean equals(ClosedRange it){
-        return (this.lowerEndpoint == it.getLowerEndpoint()) && (this.upperEndpoint == it.getUpperEndpoint());
+    public boolean equals(ClosedRange comparison){
+        return (this.lowerEndpoint == comparison.getLowerEndpoint()) && (this.upperEndpoint == comparison.getUpperEndpoint());
+    }
+
+    public boolean exist(ClosedRange comparison){
+        return true;
     }
 
 }
